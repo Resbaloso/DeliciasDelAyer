@@ -5,6 +5,19 @@ Bienvenido a **Sabores del ayer**, una landing page diseñada exclusivamente par
 
 ---
 
+## 💻 PROMPT INICIAL PARA LA CREACIÓN DEL PROYECTO USANDO LA INTELIGENCIA ARTIFICIAL STITCH:
+
+`Requiero un prototipo de pagina web para mostrar a un cliente.
+El nombre de su negocio es "Delicias del ayer", es una panadería ubicada en Bucaramanga centrada en tortas y postres. Quiero que tengas muy presente que el cliente busca más bien una pagina para mostrar y exponer sus productos, no una pagina para vender desde ella. No quiere colores corporativos, más bien tonos calidos y pasteles para su paleta de colores. Requiere un logo, todo este proyecto busca evocar sensaciones en las personas.
+La estructura es la de una landing page, debe tener una barra de navegación que permita ir al inicio y al catalogo.
+En el inicio debe haber un icono del logo en la esquina superior izquierda, más abajo en la pagina un banner temático que tenga un slogan que se relacione con el nombre, la nostalgia y la tradición en la creación de postres y tortas colombianos.
+Más abajo un breve texto que narre su trayectoria, sus años de experiencia y un factor diferenciador.
+Seguido de ello se requiere un carrusel que muestre algunos productos en movimiento, dichos productos deben ser coherentes con la marca y lo que representa. La marca maneja postres y tortas tradicionales de Colombia, quiero que tengas este contexto cada que debas añadir productos. Además al clickear estos productos, debe redirigir a la pestaña de catalogo, la misma de la barra de navegación.
+A continuación quiere un botón que sea notable y que incite a la acción. La función de este botón es abrir un formulario que permita dejar una reseña del negocio, con estrellas del 1 al 5. Quiere asegurarse de que estas reseñas se vean reales y que se vayan generando a medida que la gente comente, esto en forma de tarjetas respetando la paleta de colores y el estilo de la pagina. El formulario pedirá a la persona, un nombre, un numero de teléfono que debe verificarse para comentar y que no se puede repetir en más comentarios para evitar el spam y permitir adjuntar una foto del producto comentado. Debe permitir añadir fotos del producto reseñado de 1 a 3 maximo. Me gustaría que ya estén implementados al menos 3 comentarios y que las imagenes de estas reseñas generadas tengan fotos del producto que se vean como las que una persona normal pueda tomar en su día a día en una visita a la panadería.
+Quisiera un botón flotante que permita redirigir inmediatamente al whatsapp de la empresa, y que diga "Para cotizar click aquí" o algo que incite a la acción. Puesto que los pedidos se reciben por whatsapp. Y que indique que los horarios manejados por la empresa, son horarios de oficina.
+Y en la parte final, un footer con el nombre de la empresa el copyright y las redes sociales, instagram, facebook, whatsapp y tik tok.
+Para la pestaña de catalogo, no se quieren precios en sus artículos así pues, las descripciones de los productos deben generar sensaciones (No se quieren descripciones simples de ingredientes sin más. Se quieren descripciones que evoquen deseo, recuerdos y sensaciones), los productos estar clasificados entre fríos y calientes. Y contener una sub clasificación en la descripción individual de cada producto que dicte del 1 al 5 con iconos qué tan dulce, salado o ácido es el postre, también en el catalogo de productos debe haber un filtro que permita filtrar qué tan dulce o salado y acido sean los postres. Los postres y tortas requieren decir su tamaño en libras en el caso de torta y gramos en caso de postres más pequeños. `
+
 ## 📸 Capturas del Proyecto
 
 Aquí puedes visualizar el diseño y la interfaz del sistema:
