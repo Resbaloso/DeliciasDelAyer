@@ -1,0 +1,662 @@
+/* ==========================================================================
+   1. VARIABLES DE COLOR Y CONFIGURACIÓN BASE
+   ========================================================================== */
+   :root {
+    --color-principal: #F4D7D4;   /* Rosa Pastel Dulce */
+    --color-fondo: #FDF6EC;       /* Crema Vainilla */
+    --color-contraste: #8C624E;   /* Café Avellana / Tostado */
+    --color-acento: #EAD5C3;      /* Trigo Suave */
+    --color-blanco: #FFFFFF;
+    --fuente-titulos: 'Playfair Display', Georgia, serif;
+    --fuente-cuerpo: 'Montserrat', sans-serif;
+    --transicion: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuente-cuerpo);
+    background-color: var(--color-fondo);
+    color: var(--color-contraste);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Componente de Botón General */
+.btn-principal {
+    background-color: var(--color-contraste);
+    color: var(--color-fondo);
+    border: none;
+    padding: 12px 28px;
+    font-family: var(--fuente-cuerpo);
+    font-weight: 600;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: var(--transicion);
+    box-shadow: 0 4px 6px rgba(140, 98, 78, 0.15);
+}
+
+.btn-principal:hover {
+    background-color: var(--color-acento);
+    color: var(--color-contraste);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   2. BARRA DE NAVEGACIÓN (NAVBAR)
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: var(--color-fondo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    box-shadow: 0 2px 10px rgba(140, 98, 78, 0.1);
+    z-index: 1000;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-contraste);
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: var(--transicion);
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--color-principal);
+    transition: var(--transicion);
+}
+
+.nav-menu a:hover::after {
+    width: 100%;
+}
+
+/* ==========================================================================
+   3. SECCIÓN INICIO & HERO BANNER
+   ========================================================================== */
+main {
+    margin-top: 80px; /* Para que el contenido no se oculte tras la navbar fija */
+}
+
+.hero-banner {
+    background-color: var(--color-principal);
+    background-image: linear-gradient(rgba(244, 215, 212, 0.6), rgba(253, 246, 236, 0.8)), url('ruta-textura-o-fondo.jpg'); /* Opcional */
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.banner-content h1 {
+    font-family: var(--fuente-titulos);
+    font-size: 3.5rem;
+    color: var(--color-contraste);
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 2px rgba(253, 246, 236, 0.5);
+}
+
+.banner-content .slogan {
+    font-family: var(--fuente-titulos);
+    font-style: italic;
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Trayectoria */
+.trayectoria-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--color-blanco);
+}
+
+.trayectoria-section h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.trayectoria-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    color: #614335;
+}
+
+/* ==========================================================================
+   4. CARRUSEL DE IMÁGENES (6 ITEMS ANIMADOS)
+   ========================================================================== */
+.carrusel-section {
+    background-color: var(--color-fondo);
+    padding: 40px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrusel-container {
+    width: 100%;
+    display: flex;
+}
+
+/* Animación infinita para el movimiento */
+.carrusel-track {
+    display: flex;
+    gap: 20px;
+    width: calc(250px * 12); /* Ajustado para duplicar el contenido fluidamente en JS o CSS */
+    animation: scroll 25s linear infinite;
+}
+
+.carrusel-track:hover {
+    animation-play-state: paused; /* Se detiene al pasar el mouse */
+}
+
+.carrusel-item {
+    width: 250px;
+    height: 250px;
+    flex-shrink: 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    border: 4px solid var(--color-blanco);
+    transition: var(--transicion);
+}
+
+.carrusel-item:hover {
+    transform: scale(1.03);
+    border-color: var(--color-principal);
+}
+
+.carrusel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-270px * 6)); } /* Mueve el ancho de 6 imágenes con su gap */
+}
+
+/* ==========================================================================
+   5. SECCIÓN RESEÑAS Y MODAL FORMULARIO
+   ========================================================================== */
+.reseñas-section {
+    padding: 80px 0;
+    text-align: center;
+    background-color: var(--color-blanco);
+}
+
+.reseñas-section h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.reseñas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+/* Tarjeta de Reseña Dinámica */
+.tarjeta-reseña {
+    background-color: var(--color-fondo);
+    padding: 25px;
+    border-radius: 15px;
+    border-left: 5px solid var(--color-principal);
+    box-shadow: 0 4px 8px rgba(140, 98, 78, 0.05);
+}
+
+.tarjeta-reseña .usuario-nombre {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.tarjeta-reseña .estrellas {
+    color: #FFC107; /* Dorado clásico para las estrellas */
+    margin-bottom: 10px;
+}
+
+.tarjeta-reseña .comentario-texto {
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+.tarjeta-reseña .foto-adjunta {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Estilos del Modal */
+.modal {
+    display: none; /* Controlado por JS */
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(140, 98, 78, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--color-fondo);
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.btn-cerrar {
+    position: absolute;
+    top: 15px; right: 20px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-contraste);
+}
+
+.modal h3 {
+    font-family: var(--fuente-titulos);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid var(--color-acento);
+    background-color: var(--color-blanco);
+    border-radius: 10px;
+    font-family: var(--fuente-cuerpo);
+    color: var(--color-contraste);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-contraste);
+}
+
+/* Sistema de estrellas interactivas en Formulario (Radio Buttons) */
+.estrellas-rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 5px;
+}
+
+.estrellas-rating input { display: none; }
+
+.estrellas-rating label {
+    font-size: 1.5rem;
+    color: var(--color-acento);
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.estrellas-rating label:hover,
+.estrellas-rating label:hover ~ label,
+.estrellas-rating input:checked ~ label {
+    color: #FFC107;
+}
+
+/* Botón personalizado para subir archivo */
+.btn-adjuntar {
+    display: inline-block;
+    background-color: var(--color-acento);
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: var(--transicion);
+}
+
+.btn-adjuntar:hover { background-color: var(--color-principal); }
+#foto-producto { display: none; }
+#file-name { font-size: 0.8rem; margin-left: 10px; font-style: italic;}
+
+.btn-enviar {
+    width: 100%;
+    background-color: var(--color-contraste);
+    color: var(--color-fondo);
+    border: none;
+    padding: 14px;
+    font-weight: 600;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transicion);
+}
+
+.btn-enviar:hover { background-color: var(--color-principal); color: var(--color-contraste); }
+
+
+/* ==========================================================================
+   6. SECCIÓN CATÁLOGO (ESTRUCTURA DE TARJETAS MOCK)
+   ========================================================================== */
+.catalogo-section {
+    padding: 80px 0;
+    background-color: var(--color-fondo);
+}
+
+.catalogo-section h2 {
+    font-family: var(--fuente-titulos);
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+/* Filtros */
+.filtros-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.filtro-grupo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filtro-grupo label { font-weight: 600; }
+
+.filtro-grupo select {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 1.5px solid var(--color-acento);
+    background-color: var(--color-blanco);
+    color: var(--color-contraste);
+    font-family: var(--fuente-cuerpo);
+    font-weight: 500;
+    outline: none;
+}
+
+/* Grid del Catálogo */
+.catalogo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Estilo estricto de la Tarjeta del Producto */
+.tarjeta-producto {
+    background-color: var(--color-blanco);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(140, 98, 78, 0.06);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transicion);
+    border: 1px solid rgba(234, 213, 195, 0.4);
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(140, 98, 78, 0.12);
+}
+
+.producto-img-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--color-acento);
+}
+
+.producto-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transicion);
+}
+
+.tarjeta-producto:hover .producto-img-container img {
+    transform: scale(1.05);
+}
+
+.producto-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.producto-titulo {
+    font-family: var(--fuente-titulos);
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: var(--color-contraste);
+}
+
+.producto-peso {
+    font-size: 0.85rem;
+    color: #A07865;
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: inline-block;
+}
+
+.producto-descripcion {
+    font-size: 0.9rem;
+    color: #614335;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Hace que el texto ocupe el espacio disponible igualando alturas */
+}
+
+.producto-tags {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.producto-tags span {
+    background-color: var(--color-fondo);
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-contraste);
+    border: 1px solid var(--color-acento);
+}
+
+.btn-contacto {
+    background-color: transparent;
+    color: var(--color-contraste);
+    border: 2px solid var(--color-contraste);
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: var(--fuente-cuerpo);
+    transition: var(--transicion);
+}
+
+.btn-contacto:hover {
+    background-color: var(--color-contraste);
+    color: var(--color-fondo);
+}
+
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+.main-footer {
+    background-color: var(--color-contraste);
+    color: var(--color-fondo);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-socials a {
+    color: var(--color-fondo);
+    font-size: 1.5rem;
+    transition: var(--transicion);
+}
+
+.footer-socials a:hover {
+    color: var(--color-principal);
+    transform: translateY(-3px);
+}
+
+
+/* ==========================================================================
+   8. BOTÓN FLOTANTE DE WHATSAPP CON TOOLTIP
+   ========================================================================== */
+.btn-whatsapp-flotante {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; /* Verde oficial WhatsApp */
+    color: var(--color-blanco);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    text-decoration: none;
+    z-index: 999;
+    transition: var(--transicion);
+}
+
+.btn-whatsapp-flotante:hover {
+    transform: scale(1.1);
+}
+
+/* Estructura del Tooltip informativo lateral */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 75px;
+    background-color: var(--color-blanco);
+    color: var(--color-contraste);
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    text-align: center;
+    border: 1px solid var(--color-acento);
+    opacity: 1; /* Visible permanentemente para incitar la acción directa */
+    pointer-events: none;
+}
+
+.whatsapp-tooltip span {
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.whatsapp-tooltip small {
+    font-size: 0.75rem;
+    color: #A07865;
+    margin-top: 2px;
+}
+
+/* Flechita del tooltip */
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -6px;
+    transform: translateY(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-blanco);
+    border-right: 1px solid var(--color-acento);
+    border-top: 1px solid var(--color-acento);
+}
+
+
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (ADAPTACIÓN MÓVIL)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .navbar { padding: 0 20px; }
+    .banner-content h1 { font-size: 2.5rem; }
+    .banner-content .slogan { font-size: 1.2rem; }
+    .whatsapp-tooltip { display: none; } /* Ocultar tooltip en móviles pequeños por espacio */
+    .filtros-container { flex-direction: column; align-items: stretch; gap: 15px; }
+}
